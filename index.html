@@ -4,39 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LILI Token | Fluffiest Vibe</title>
-    <!-- Load Tailwind CSS for utility classes --><script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Fonts: Baloo 2 for a friendly, bold look --><link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Load Tone.js for sound effects (keeping the script tag as it was present, though the logic is removed) --><script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+    
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
 
     <style>
         /* Global Styling */
         body {
             font-family: 'Baloo 2', sans-serif;
-            background: #000000 url('https://wallpaperaccess.com/full/1862750.jpg') no-repeat center center; 
-            background-size: cover;
+            /* New pattern background */
+            background: #000000 url('https://s12.gifyu.com/images/b3RRx.png') repeat center center;
+            background-size: auto;
             background-attachment: fixed;
-            color: #3b1d0a; /* Dark text for contrast against the main card */
+            color: #3b1d0a; /* Dark text for contrast against the main card, will be overridden where specific */
         }
         /* Main content card with glass effect and border */
         .main-card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
             border-radius: 30px;
-            box-shadow: 0 15px 35px rgba(173, 216, 230, 0.5); 
+            box-shadow: 0 15px 35px rgba(255, 140, 0, 0.3); /* Orange shadow */
             overflow: hidden;
-            border: 4px solid #ff99aa; /* Pink border */
+            border: 4px solid #FFA500; /* Orange border */
         }
         /* Style for the main CTA button */
         .glow-btn {
-            background: linear-gradient(90deg, #ff69b4, #ffb3e6); /* Pink gradient */
-            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.5);
+            background: linear-gradient(90deg, #FF6900, #FFA500); /* Orange gradient */
+            box-shadow: 0 4px 15px rgba(255, 105, 0, 0.5);
             transition: all 0.3s ease;
         }
         .glow-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.7);
+            box-shadow: 0 8px 20px rgba(255, 105, 0, 0.7);
         }
 
         /* Moving Avatar Styling (Top Mascot) */
@@ -75,7 +82,7 @@
             height: 60px;
             border-radius: 50%;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(255, 105, 180, 0.6); /* Soft pink shadow */
+            box-shadow: 0 4px 12px rgba(255, 140, 0, 0.6); /* Soft orange shadow */
             transition: transform 0.2s;
         }
         .floating-mascot:hover {
@@ -89,26 +96,38 @@
     <!-- Main Content Card --><div class="w-full max-w-xl main-card relative z-10">
 
         <!-- Moving Avatar --><div class="moving-avatar-container">
-            <!-- Image is now set as background-image in CSS --></div>
+            <!-- Image is set via CSS background-image --></div>
 
-        <!-- Navigation Header (Socials/Utility) - LINKS UPDATED --><nav class="flex justify-around items-center p-4 bg-white/80 rounded-t-[26px] border-b-2 border-pink-200">
-            <!-- Chart Link --><a href="https://www.dextools.io/app/en/solana/pair-explorer/7iRXXW9yAvxeWnvqEPwBnEcSZcwfTmSJSDA84x1CTrWM?t=1761748008570" target="_blank" class="flex items-center text-pink-600 font-semibold text-sm sm:text-base hover:text-pink-800 transition">
-                <!-- Link Icon (Lucide: Link) --><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-1"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+        <!-- Navigation Bar --><nav class="flex justify-around items-center p-4 bg-white/80 rounded-t-[26px] border-b-2 border-orange-200">
+            
+
+<a href="https://www.dextools.io/app/en/solana/pair-explorer/7iRXXW9yAvxeWnvqEPwBnEcSZcwfTmSJSDA84x1CTrWM?t=1761748008570" target="_blank" class="flex items-center text-orange-600 font-semibold text-sm sm:text-base hover:text-orange-800 transition">
+                
+
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-1"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
                 Chart
             </a>
 
-            <!-- Telegram Link --><a href="https://t.me/lili_token" target="_blank" class="flex items-center text-pink-600 font-semibold text-sm sm:text-base hover:text-pink-800 transition">
-                <!-- Telegram Icon (Lucide: Send) --><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-1"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+            
+
+<a href="https://t.me/lili_token" target="_blank" class="flex items-center text-orange-600 font-semibold text-sm sm:text-base hover:text-orange-800 transition">
+                
+
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-1"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
                 Telegram
             </a>
 
-            <!-- X / Twitter Link --><a href="https://x.com/token_lili" target="_blank" class="flex items-center text-pink-600 font-semibold text-sm sm:text-base hover:text-pink-800 transition">
-                <!-- X Icon --><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-1"><path d="M18.901 1.153h3.684l-8.027 9.188L24 22.846h-7.614l-6.195-7.144L5.61 22.846H1.925l8.067-9.255L0 1.153h7.766l5.242 6.817L18.901 1.153Z"/></svg>
+            
+
+<a href="https://x.com/token_lili" target="_blank" class="flex items-center text-orange-600 font-semibold text-sm sm:text-base hover:text-orange-800 transition">
+                
+
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-1"><path d="M18.901 1.153h3.684l-8.027 9.188L24 22.846h-7.614l-6.195-7.144L5.61 22.846H1.925l8.067-9.255L0 1.153h7.766l5.242 6.817L18.901 1.153Z"/></svg>
                 X
             </a>
         </nav>
         
-        <!-- Header Image (The image provided by the user) --><header class="overflow-hidden">
+        <!-- Header Image --><header class="overflow-hidden">
             <img src="https://s12.gifyu.com/images/b3R7A.png"
                 alt="Lili Token: Official Header"
                 class="w-full h-auto block"
@@ -118,62 +137,63 @@
                 onerror="this.onerror=null; this.src='https://placehold.co/600x200/ff99aa/ffffff?text=LILI+TOKEN+Header+Error'">
         </header>
 
-        <!-- Main Content Area --><main class="p-6 sm:p-8 space-y-8 flex-grow">
-            <!-- Introduction Section --><section class="text-center">
-                <h2 class="text-3xl text-pink-600 font-bold mb-3">Welcome to the Fuzz Factory!</h2>
-                <p class="text-gray-700">
+        <!-- Main Content --><main class="p-6 sm:p-8 space-y-8 flex-grow">
+            
+            <!-- Welcome Section (Text Visibility Fix Applied) --><section class="text-center">
+                <h2 class="text-3xl text-orange-600 font-bold mb-3">Welcome to the Fuzz Factory!</h2>
+                <!-- Text color is now dark (text-gray-800) for clear visibility on white background --><p class="text-gray-800">
                     LILI is more than a coin; it's a movement built on joy, community, and the promise of endless cuddles. Let's make the internet fluffier! 💖
                 </p>
             </section>
 
-            <!-- Token Details Section --><section class="text-center">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-4 border-b-2 border-pink-100 pb-2 inline-block">Token Info</h3>
+            <!-- Token Info Section --><section class="text-center">
+                <h3 class="text-2xl font-semibold text-orange-800 mb-4 border-b-2 border-orange-100 pb-2 inline-block">Token Info</h3>
                 <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                    <div class="w-full sm:w-1/2 p-4 rounded-xl border-4 border-pink-300 bg-white shadow-lg">
+                    <div class="w-full sm:w-1/2 p-4 rounded-xl border-4 border-orange-300 bg-white shadow-lg">
                         <span class="font-medium text-gray-700 block text-sm">Token Name</span>
-                        <span class="text-2xl font-extrabold text-pink-600">LILI</span>
+                        <span class="text-2xl font-extrabold text-orange-600">LILI</span>
                     </div>
-                    <div class="w-full sm:w-1/2 p-4 rounded-xl border-4 border-pink-300 bg-white shadow-lg">
+                    <div class="w-full sm:w-1/2 p-4 rounded-xl border-4 border-orange-300 bg-white shadow-lg">
                         <span class="font-medium text-gray-700 block text-sm">Blockchain</span>
-                        <span class="text-2xl font-extrabold text-pink-600">Solana</span>
+                        <span class="text-2xl font-extrabold text-orange-600">Solana</span>
                     </div>
                 </div>
                 
-                <!-- Contract Address Block -->
-                <div class="mt-6 p-4 rounded-xl border-4 border-pink-300 bg-white shadow-lg mx-auto max-w-lg">
-                    <span class="font-medium text-gray-700 block text-sm mb-2">Contract Address (Solana)</span>
-                    <div class="flex items-center justify-center space-x-2">
-                        <!-- Input field to hold the address for copying -->
-                        <input type="text" id="contractAddress" 
-                               value="9Pj1D32FvT9f1g4kS6j2s8m3n4h5j6k7l8m9n0oP" 
-                               readonly
-                               class="text-lg font-mono text-gray-800 bg-gray-100 p-2 rounded-lg w-full max-w-xs text-center border border-gray-300 truncate">
+                <!-- Stylish Contract Address Block --><div class="mt-6 p-6 rounded-2xl bg-orange-50 border border-orange-200 shadow-xl mx-auto max-w-lg">
+                    <span class="font-bold text-orange-800 block text-base mb-3 text-center uppercase tracking-wide">
+                        Official Contract Address
+                    </span>
+                    <div class="flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-3">
+                        <div class="relative flex-grow w-full">
+                            <!-- Styled Input Field (read-only chip) --><input type="text" id="contractAddress" 
+                                   value="9Pj1D32FvT9f1g4kS6j2s8m3n4h5j6k7l8m9n0oP" 
+                                   readonly
+                                   class="text-sm font-mono text-gray-800 bg-white p-3 rounded-full w-full text-center border-2 border-orange-300 shadow-inner truncate">
+                        </div>
                         
-                        <!-- Copy Button -->
-                        <button id="copyButton" 
-                                class="bg-pink-500 text-white p-2 rounded-lg hover:bg-pink-600 transition duration-150 flex items-center shadow-md hover:shadow-lg">
-                            <!-- Copy Icon (Lucide: Copy) -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+                        <!-- Styled Copy Button --><button id="copyButton" 
+                                class="bg-orange-600 text-white p-3 rounded-full hover:bg-orange-700 transition duration-150 flex items-center shadow-lg hover:shadow-xl font-bold uppercase text-sm w-full sm:w-auto justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-1"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+                            Copy CA
                         </button>
                     </div>
-                    <!-- Copy Confirmation Message -->
-                    <p id="copyConfirmation" class="text-green-600 font-bold mt-2 opacity-0 transition-opacity duration-300 h-0 overflow-hidden">
+                    
+                    <!-- Confirmation message (Adjusted for fixed height) --><p id="copyConfirmation" class="text-green-600 font-bold mt-3 opacity-0 transition-opacity duration-300 h-6 flex items-center justify-center">
                         Address Copied! 🐾
                     </p>
                 </div>
             </section>
 
-            <!-- Call to Action - LINK UPDATED --><section class="text-center pt-4">
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">Don't Miss the Meowment!</h3>
+            <!-- Call to Action Section --><section class="text-center pt-4">
+                <h3 class="text-2xl font-bold text-orange-800 mb-4">Don't Miss the Meowment!</h3>
                 <a href="https://opensea.io/" target="_blank"
                     class="inline-block glow-btn text-white text-xl font-bold py-3 px-10 rounded-full uppercase tracking-wider">
                     Adopt Lili Now
                 </a>
                 <p class="text-sm text-gray-500 mt-3">(NFT SOON)</p>
 
-                <!-- NEW: Sad Meow Sound Embed with context text -->
-                <div class="mt-8">
-                    <p class="text-xl font-semibold text-pink-600 mb-2">
+                <!-- Lonely Meow Section --><div class="mt-8">
+                    <p class="text-xl font-semibold text-orange-600 mb-2">
                         Click this if you feel lonely 💔
                     </p>
                     <iframe width="110" height="200" src="https://www.myinstants.com/instant/sad-meow-song-88771/embed/" frameborder="0" scrolling="no" class="mx-auto block rounded-xl shadow-lg"></iframe>
@@ -181,26 +201,25 @@
             </section>
         </main>
         
-        <!-- Future Listings & Partnerships Section -->
-        <section class="text-center p-6 sm:p-8 space-y-4">
-            <h3 class="text-2xl font-bold text-gray-800 mb-6">Future Listings & Partnerships</h3>
-            <p class="text-base text-pink-600 font-semibold mb-6">LILI is reaching for the stars (and the biggest platforms) soon!</p>
+        <!-- Future Listings Section (Logos Updated) --><section class="text-center p-6 sm:p-8 space-y-4">
+            <h3 class="text-2xl font-bold text-orange-800 mb-6">Future Listings & Partnerships</h3>
+            <p class="text-base text-orange-600 font-semibold mb-6">LILI is reaching for the stars (and the biggest platforms) soon!</p>
             <div class="flex flex-wrap justify-center items-center gap-4">
-                <img src="https://placehold.co/120x40/f7931a/ffffff?text=CoinMarketCap" alt="CoinMarketCap Logo Placeholder" class="h-10 rounded-md shadow-lg hover:scale-105 transition-transform" />
-                <img src="https://placehold.co/120x40/5cb85c/ffffff?text=CoinGecko" alt="CoinGecko Logo Placeholder" class="h-10 rounded-md shadow-lg hover:scale-105 transition-transform" />
-                <img src="https://placehold.co/120x40/4a76a8/ffffff?text=Dexscreener" alt="Dexscreener Logo Placeholder" class="h-10 rounded-md shadow-lg hover:scale-105 transition-transform" />
+                <!-- CoinMarketCap Logo --><img src="https://cdn2.downdetector.com/static/uploads/logo/Coinmarketcap.png" alt="CoinMarketCap Logo" class="h-10 rounded-md shadow-lg hover:scale-105 transition-transform" />
+                <!-- CoinGecko Logo (Updated with external URL) --><img src="https://image.pngaaa.com/593/8103593-middle.png" alt="CoinGecko Logo" class="h-10 rounded-md shadow-lg hover:scale-105 transition-transform" />
+                <!-- Dexscreener Logo (Updated with external URL) --><img src="https://cryptoast.fr/wp-content/uploads/2024/06/dex-screener-logo.png" alt="Dexscreener Logo" class="h-10 rounded-md shadow-lg hover:scale-105 transition-transform" />
             </div>
         </section>
 
-        <!-- Footer --><footer class="bg-white/80 text-gray-600 text-center p-4 border-t-2 border-pink-200">
+        <!-- Footer --><footer class="bg-white/80 text-gray-600 text-center p-4 border-t-2 border-orange-200">
             <p class="text-xs">&copy; 2025 Lili Token Community. All Rights Reserved.</p>
         </footer>
     </div>
 
-    <!-- Floating Dancing Mascot -->
-    <div class="floating-mascot">
-        <!-- Using a direct GIF source derived from the Tenor link -->
-        <img src="https://media.tenor.com/kHh-Y2220iMAAAAM/small-dancing-white-cat-dance-funny.gif" 
+    <!-- Floating Mascot --><div class="floating-mascot">
+        
+
+<img src="https://media.tenor.com/kHh-Y2220iMAAAAM/small-dancing-white-cat-dance-funny.gif" 
              alt="Dancing Cat Mascot" 
              class="w-full h-full object-cover">
     </div>
@@ -220,40 +239,42 @@
                     const success = document.execCommand('copy');
                     
                     if (success) {
-                        confirmationMessage.classList.remove('opacity-0', 'h-0', 'overflow-hidden', 'text-red-600');
+                        // Show success message
+                        confirmationMessage.classList.remove('opacity-0');
                         confirmationMessage.classList.add('opacity-100', 'text-green-600');
                         confirmationMessage.textContent = 'Address Copied! 🐾';
                         
-                        const originalBg = 'bg-pink-500';
-                        copyButton.classList.remove(originalBg, 'hover:bg-pink-600');
+                        // Change button color to green temporarily
+                        const originalBg = 'bg-orange-600'; // Updated to reflect new button color
+                        copyButton.classList.remove(originalBg, 'hover:bg-orange-700');
                         copyButton.classList.add('bg-green-500', 'hover:bg-green-500');
 
                         setTimeout(() => {
+                            // Hide success message and restore button color
                             confirmationMessage.classList.remove('opacity-100');
-                            confirmationMessage.classList.add('opacity-0', 'h-0', 'overflow-hidden');
+                            confirmationMessage.classList.add('opacity-0');
                             
                             copyButton.classList.remove('bg-green-500', 'hover:bg-green-500');
-                            copyButton.classList.add(originalBg, 'hover:bg-pink-600');
-
+                            copyButton.classList.add(originalBg, 'hover:bg-orange-700');
                         }, 2000);
                     } else {
                         console.error('Copy command failed (execCommand returned false).');
                         confirmationMessage.textContent = 'Copy Failed (Error)';
-                        confirmationMessage.classList.remove('opacity-0', 'h-0', 'overflow-hidden');
+                        confirmationMessage.classList.remove('opacity-0');
                         confirmationMessage.classList.add('opacity-100', 'text-red-600');
                         setTimeout(() => {
                             confirmationMessage.classList.remove('opacity-100');
-                            confirmationMessage.classList.add('opacity-0', 'h-0', 'overflow-hidden');
+                            confirmationMessage.classList.add('opacity-0');
                         }, 3000);
                     }
                 } catch (err) {
                     console.error('Unable to copy', err);
                     confirmationMessage.textContent = 'Copy Failed (Check Console)';
-                    confirmationMessage.classList.remove('opacity-0', 'h-0', 'overflow-hidden');
+                    confirmationMessage.classList.remove('opacity-0');
                     confirmationMessage.classList.add('opacity-100', 'text-red-600');
                     setTimeout(() => {
                         confirmationMessage.classList.remove('opacity-100');
-                        confirmationMessage.classList.add('opacity-0', 'h-0', 'overflow-hidden');
+                            confirmationMessage.classList.add('opacity-0');
                     }, 3000);
                 }
             });
