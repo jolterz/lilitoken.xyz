@@ -1,155 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lili Token | Fueled by the fluffiest vibe</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LILI Token | Fluffiest Vibe</title>
+    <!-- Load Tailwind CSS for utility classes --><script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Tailwind CSS for utility styling -->  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts: Baloo 2 for a friendly, bold look --><link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Load Tone.js for sound effects (keeping the script tag as it was present, though the logic is removed) --><script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
 
-  <!-- Fonts -->  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styling */
+        body {
+            font-family: 'Baloo 2', sans-serif;
+            background: #000000 url('https://wallpaperaccess.com/full/1862750.jpg') no-repeat center center; 
+            background-size: cover;
+            background-attachment: fixed;
+            color: #3b1d0a; /* Dark text for contrast against the main card */
+        }
+        /* Main content card with glass effect and border */
+        .main-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(173, 216, 230, 0.5); 
+            overflow: hidden;
+            border: 4px solid #ff99aa; /* Pink border */
+        }
+        /* Style for the main CTA button */
+        .glow-btn {
+            background: linear-gradient(90deg, #ff69b4, #ffb3e6); /* Pink gradient */
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.5);
+            transition: all 0.3s ease;
+        }
+        .glow-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.7);
+        }
 
-  <style>
-    /* Global Styling */
-    body {
-      font-family: 'Baloo 2', sans-serif;
-      /* CHANGED: Set full-page background image from user URL */
-      background: #f7f7f7 url('https://wallpaperaccess.com/full/1862750.jpg') no-repeat center center; 
-      background-size: cover;
-      background-attachment: fixed;
-      position: relative;
-      overflow-x: hidden; /* Hide horizontal scrollbar from animation */
-      color: #3b1d0a;
-    }
+        /* Moving Avatar Styling (Top Mascot) */
+        .moving-avatar-container {
+            position: absolute;
+            top: 60px; /* Adjusted to clear the navigation bar */
+            left: 50%; /* Start at 50% from the left */
+            transform: translateX(-50%); /* Move back by half its width for perfect centering */
+            z-index: 20; /* Ensure it's above other elements */
+            width: 80px; /* Size of the avatar */
+            height: 80px; /* Size of the avatar */
+            border-radius: 50%; /* Make it circular */
+            overflow: hidden; /* Clip image to circle */
+            border: 5px solid #fff; /* White border for emphasis */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Soft shadow */
+            background-image: url('https://s12.gifyu.com/images/b3Rlx.png'); /* Set avatar image as background */
+            background-size: cover; /* Ensure image covers the circle */
+            background-position: center; /* Center the image */
+            animation: avatar-float 3s ease-in-out infinite; /* Apply floating animation */
+        }
+        
+        /* Keyframes for the top floating animation */
+        @keyframes avatar-float {
+            0% { transform: translateX(-50%) translateY(0px); }
+            50% { transform: translateX(-50%) translateY(-10px); } /* Moves up slightly */
+            100% { transform: translateX(-50%) translateY(0px); }
+        }
 
-    /* Background Paw Print Pattern (REMOVED - now using the custom image) */
-    .fur-overlay {
-      display: none; /* Hide the paw overlay div */
-    }
-
-    /* Glass-like Card Effect for the main content box */
-    .glass-card {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-radius: 40px;
-      /* Adjusted box-shadow color to better match the new background image */
-      box-shadow: 0 10px 30px rgba(173, 216, 230, 0.5); /* Soft lilac/blue shadow */
-      padding: 0;
-      overflow: hidden;
-    }
-
-    /* Button Glow */
-    .glow-btn {
-      background: linear-gradient(90deg, #ffa94d, #ff6b35);
-      box-shadow: 0 4px 12px rgba(255, 145, 70, 0.4);
-      transition: all 0.2s ease;
-    }
-    .glow-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 18px rgba(255, 120, 50, 0.5);
-    }
-
-    /* Sad Meow iframe styling for the button effect */
-    .sad-meow-container {
-      background: #ffea7a;
-      border: 4px solid #ff69b4;
-      border-radius: 24px;
-      padding: 10px;
-      box-shadow: 0 6px 15px rgba(255, 105, 180, 0.3);
-    }
-
-    /* Smooth entry animation */
-    .fade-in {
-      animation: fadeIn 1.2s ease forwards;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+        /* Floating Mascot Styling (Bottom Left) */
+        .floating-mascot {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 50; /* Above everything else */
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(255, 105, 180, 0.6); /* Soft pink shadow */
+            transition: transform 0.2s;
+        }
+        .floating-mascot:hover {
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 
-<body class="min-h-screen flex flex-col items-center p-6 relative">
-  <!-- Background Paw Print Overlay (REMOVED: Now using a single background image in CSS) -->
+<body class="min-h-screen flex flex-col items-center p-4 sm:p-8">
+    
+    <!-- Main Content Card --><div class="w-full max-w-xl main-card relative z-10">
 
-  <!-- Main Content Card -->  <div class="w-full max-w-xl glass-card relative z-10 fade-in border-8 border-white">
-    <!-- New Navigation Header -->
-    <nav class="flex justify-around items-center p-4 bg-white/70 backdrop-blur-sm rounded-t-[32px] border-b-2 border-orange-200">
-      
-      <!-- Chart Link -->
-      <a href="https://www.dextools.io/app/en/solana/pair-explorer/7iRXXW9yAvxeWnvqEPwBnEcSZcwfTmSJSDA84x1CTrWM" target="_blank" class="flex items-center text-orange-600 font-semibold text-sm sm:text-base hover:text-orange-800 transition">
-        <!-- Chart Icon (Lucide: Trending Up/Link) -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-1"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-        Chart
-      </a>
+        <!-- Moving Avatar --><div class="moving-avatar-container">
+            <!-- Image is now set as background-image in CSS --></div>
 
-      <!-- Telegram Link -->
-      <a href="#" target="_blank" class="flex items-center text-orange-600 font-semibold text-sm sm:text-base hover:text-orange-800 transition">
-        <!-- Telegram Icon (Lucide: Send/Paper Plane) -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-1"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-        Telegram
-      </a>
+        <!-- Navigation Header (Socials/Utility) - LINKS UPDATED --><nav class="flex justify-around items-center p-4 bg-white/80 rounded-t-[26px] border-b-2 border-pink-200">
+            <!-- Chart Link --><a href="https://www.dextools.io/app/en/solana/pair-explorer/7iRXXW9yAvxeWnvqEPwBnEcSZcwfTmSJSDA84x1CTrWM?t=1761748008570" target="_blank" class="flex items-center text-pink-600 font-semibold text-sm sm:text-base hover:text-pink-800 transition">
+                <!-- Link Icon (Lucide: Link) --><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-1"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                Chart
+            </a>
 
-      <!-- X / Twitter Link -->
-      <a href="#" target="_blank" class="flex items-center text-orange-600 font-semibold text-sm sm:text-base hover:text-orange-800 transition">
-        <!-- X Icon (Twitter) -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-1"><path d="M18.901 1.153h3.684l-8.027 9.188L24 22.846h-7.614l-6.195-7.144L5.61 22.846H1.925l8.067-9.255L0 1.153h7.766l5.242 6.817L18.901 1.153Z"/></svg>
-        X
-      </a>
-    </nav>
-    
-    <!-- Header: Integrated Image (now follows the navigation bar) -->    <header class="overflow-hidden">
-      <img src="https://s12.gifyu.com/images/b3R9n.png"
-           alt="Lili Token: Fueled by the fluffiest vibe"
-           class="w-full h-auto block"
-           width="600"
-           height="180"
-           loading="lazy"
-           onerror="this.onerror=null; this.src='https://placehold.co/600x180/ff7e00/ffffff?text=LILI+TOKEN+Header+Error'">
-    </header>
+            <!-- Telegram Link --><a href="https://t.me/lili_token" target="_blank" class="flex items-center text-pink-600 font-semibold text-sm sm:text-base hover:text-pink-800 transition">
+                <!-- Telegram Icon (Lucide: Send) --><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-1"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                Telegram
+            </a>
 
-    <!-- Main Content Area -->    <main class="p-8 space-y-8 flex-grow">
+            <!-- X / Twitter Link --><a href="https://x.com/token_lili" target="_blank" class="flex items-center text-pink-600 font-semibold text-sm sm:text-base hover:text-pink-800 transition">
+                <!-- X Icon --><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-1"><path d="M18.901 1.153h3.684l-8.027 9.188L24 22.846h-7.614l-6.195-7.144L5.61 22.846H1.925l8.067-9.255L0 1.153h7.766l5.242 6.817L18.901 1.153Z"/></svg>
+                X
+            </a>
+        </nav>
+        
+        <!-- Header Image (The image provided by the user) --><header class="overflow-hidden">
+            <img src="https://s12.gifyu.com/images/b3R7A.png"
+                alt="Lili Token: Official Header"
+                class="w-full h-auto block"
+                width="600"
+                height="200"
+                loading="lazy"
+                onerror="this.onerror=null; this.src='https://placehold.co/600x200/ff99aa/ffffff?text=LILI+TOKEN+Header+Error'">
+        </header>
 
-      <!-- Introduction Section -->      <section class="text-center">
-        <h2 class="text-3xl text-orange-700 font-bold mb-3">Join the Cuteness Revolution!</h2>
-        <p class="text-gray-700">
-          Every $LILI trade helps real cats. A warm-hearted memecoin built for joy, pawsitivity, and purpose 🧡.
-        </p>
-      </section>
+        <!-- Main Content Area --><main class="p-6 sm:p-8 space-y-8 flex-grow">
+            <!-- Introduction Section --><section class="text-center">
+                <h2 class="text-3xl text-pink-600 font-bold mb-3">Welcome to the Fuzz Factory!</h2>
+                <p class="text-gray-700">
+                    LILI is more than a coin; it's a movement built on joy, community, and the promise of endless cuddles. Let's make the internet fluffier! 💖
+                </p>
+            </section>
 
-      <!-- Token Details Section -->      <section class="p-4 rounded-xl relative overflow-hidden text-center bg-transparent">
-        <h3 class="text-xl font-semibold text-orange-700 mb-4">🐾 Token Details</h3>
-        <div class="flex justify-center space-x-4">
-          <div class="w-1/2 p-4 rounded-2xl border-4 border-orange-200 bg-white shadow-lg">
-            <span class="font-medium text-gray-700 block">Ticker</span>
-            <span class="text-xl font-extrabold text-orange-700">$LILI</span>
-          </div>
-          <div class="w-1/2 p-4 rounded-2xl border-4 border-orange-200 bg-white shadow-lg">
-            <span class="font-medium text-gray-700 block">Chain</span>
-            <span class="text-xl font-extrabold text-orange-700">Solana</span>
-          </div>
-        </div>
-      </section>
+            <!-- Token Details Section --><section class="text-center">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4 border-b-2 border-pink-100 pb-2 inline-block">Token Info</h3>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <div class="w-full sm:w-1/2 p-4 rounded-xl border-4 border-pink-300 bg-white shadow-lg">
+                        <span class="font-medium text-gray-700 block text-sm">Token Name</span>
+                        <span class="text-2xl font-extrabold text-pink-600">LILI</span>
+                    </div>
+                    <div class="w-full sm:w-1/2 p-4 rounded-xl border-4 border-pink-300 bg-white shadow-lg">
+                        <span class="font-medium text-gray-700 block text-sm">Blockchain</span>
+                        <span class="text-2xl font-extrabold text-pink-600">Solana</span>
+                    </div>
+                </div>
+                
+                <!-- Contract Address Block -->
+                <div class="mt-6 p-4 rounded-xl border-4 border-pink-300 bg-white shadow-lg mx-auto max-w-lg">
+                    <span class="font-medium text-gray-700 block text-sm mb-2">Contract Address (Solana)</span>
+                    <div class="flex items-center justify-center space-x-2">
+                        <!-- Input field to hold the address for copying -->
+                        <input type="text" id="contractAddress" 
+                               value="9Pj1D32FvT9f1g4kS6j2s8m3n4h5j6k7l8m9n0oP" 
+                               readonly
+                               class="text-lg font-mono text-gray-800 bg-gray-100 p-2 rounded-lg w-full max-w-xs text-center border border-gray-300 truncate">
+                        
+                        <!-- Copy Button -->
+                        <button id="copyButton" 
+                                class="bg-pink-500 text-white p-2 rounded-lg hover:bg-pink-600 transition duration-150 flex items-center shadow-md hover:shadow-lg">
+                            <!-- Copy Icon (Lucide: Copy) -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+                        </button>
+                    </div>
+                    <!-- Copy Confirmation Message -->
+                    <p id="copyConfirmation" class="text-green-600 font-bold mt-2 opacity-0 transition-opacity duration-300 h-0 overflow-hidden">
+                        Address Copied! 🐾
+                    </p>
+                </div>
+            </section>
 
-      <!-- Embedded Sad Meow Sound Instant -->      <section class="text-center p-4 sad-meow-container flex justify-center items-center">
-        <iframe width="110" height="200" src="https://www.myinstants.com/instant/sad-meow-song-88771/embed/" frameborder="0" scrolling="no" class="mx-auto bg-transparent"></iframe>
-      </section>
+            <!-- Call to Action - LINK UPDATED --><section class="text-center pt-4">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Don't Miss the Meowment!</h3>
+                <a href="https://opensea.io/" target="_blank"
+                    class="inline-block glow-btn text-white text-xl font-bold py-3 px-10 rounded-full uppercase tracking-wider">
+                    Adopt Lili Now
+                </a>
+                <p class="text-sm text-gray-500 mt-3">(NFT SOON)</p>
 
-      <!-- Buy Button Section -->      <section class="text-center space-y-4">
-        <h3 class="text-2xl font-bold text-gray-800">Buy Lili Now!</h3>
-        <a href="https://www.dextools.io/app/en/solana/pair-explorer/7iRXXW9yAvxeWnvqEPwBnEcSZcwfTmSJSDA84x1CTrWM"
-           target="_blank"
-           class="inline-block glow-btn text-white text-xl font-bold py-3 px-12 rounded-full">
-          🚀 Buy Lili Now!
-        </a>
-        <p class="text-xs text-gray-500 mt-3">You’ll be redirected to DEXTools.</p>
-      </section>
-    </main>
+                <!-- NEW: Sad Meow Sound Embed with context text -->
+                <div class="mt-8">
+                    <p class="text-xl font-semibold text-pink-600 mb-2">
+                        Click this if you feel lonely 💔
+                    </p>
+                    <iframe width="110" height="200" src="https://www.myinstants.com/instant/sad-meow-song-88771/embed/" frameborder="0" scrolling="no" class="mx-auto block rounded-xl shadow-lg"></iframe>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Future Listings & Partnerships Section -->
+        <section class="text-center p-6 sm:p-8 space-y-4">
+            <h3 class="text-2xl font-bold text-gray-800 mb-6">Future Listings & Partnerships</h3>
+            <p class="text-base text-pink-600 font-semibold mb-6">LILI is reaching for the stars (and the biggest platforms) soon!</p>
+            <div class="flex flex-wrap justify-center items-center gap-4">
+                <img src="https://placehold.co/120x40/f7931a/ffffff?text=CoinMarketCap" alt="CoinMarketCap Logo Placeholder" class="h-10 rounded-md shadow-lg hover:scale-105 transition-transform" />
+                <img src="https://placehold.co/120x40/5cb85c/ffffff?text=CoinGecko" alt="CoinGecko Logo Placeholder" class="h-10 rounded-md shadow-lg hover:scale-105 transition-transform" />
+                <img src="https://placehold.co/120x40/4a76a8/ffffff?text=Dexscreener" alt="Dexscreener Logo Placeholder" class="h-10 rounded-md shadow-lg hover:scale-105 transition-transform" />
+            </div>
+        </section>
 
-    <!-- Footer -->    <footer class="bg-transparent text-gray-700 text-center p-4">
-      <p class="text-sm">&copy; 2025 Lili Token 🐱 Built for lilitoken.xyz</p>
-      <!-- Removed redundant social links from the footer -->
-    </footer>
-  </div>
+        <!-- Footer --><footer class="bg-white/80 text-gray-600 text-center p-4 border-t-2 border-pink-200">
+            <p class="text-xs">&copy; 2025 Lili Token Community. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Floating Dancing Mascot -->
+    <div class="floating-mascot">
+        <!-- Using a direct GIF source derived from the Tenor link -->
+        <img src="https://media.tenor.com/kHh-Y2220iMAAAAM/small-dancing-white-cat-dance-funny.gif" 
+             alt="Dancing Cat Mascot" 
+             class="w-full h-full object-cover">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Contract Address Copy Logic ---
+            const copyButton = document.getElementById('copyButton');
+            const contractAddressInput = document.getElementById('contractAddress');
+            const confirmationMessage = document.getElementById('copyConfirmation');
+
+            copyButton.addEventListener('click', () => {
+                contractAddressInput.select();
+                contractAddressInput.setSelectionRange(0, 99999); 
+
+                try {
+                    const success = document.execCommand('copy');
+                    
+                    if (success) {
+                        confirmationMessage.classList.remove('opacity-0', 'h-0', 'overflow-hidden', 'text-red-600');
+                        confirmationMessage.classList.add('opacity-100', 'text-green-600');
+                        confirmationMessage.textContent = 'Address Copied! 🐾';
+                        
+                        const originalBg = 'bg-pink-500';
+                        copyButton.classList.remove(originalBg, 'hover:bg-pink-600');
+                        copyButton.classList.add('bg-green-500', 'hover:bg-green-500');
+
+                        setTimeout(() => {
+                            confirmationMessage.classList.remove('opacity-100');
+                            confirmationMessage.classList.add('opacity-0', 'h-0', 'overflow-hidden');
+                            
+                            copyButton.classList.remove('bg-green-500', 'hover:bg-green-500');
+                            copyButton.classList.add(originalBg, 'hover:bg-pink-600');
+
+                        }, 2000);
+                    } else {
+                        console.error('Copy command failed (execCommand returned false).');
+                        confirmationMessage.textContent = 'Copy Failed (Error)';
+                        confirmationMessage.classList.remove('opacity-0', 'h-0', 'overflow-hidden');
+                        confirmationMessage.classList.add('opacity-100', 'text-red-600');
+                        setTimeout(() => {
+                            confirmationMessage.classList.remove('opacity-100');
+                            confirmationMessage.classList.add('opacity-0', 'h-0', 'overflow-hidden');
+                        }, 3000);
+                    }
+                } catch (err) {
+                    console.error('Unable to copy', err);
+                    confirmationMessage.textContent = 'Copy Failed (Check Console)';
+                    confirmationMessage.classList.remove('opacity-0', 'h-0', 'overflow-hidden');
+                    confirmationMessage.classList.add('opacity-100', 'text-red-600');
+                    setTimeout(() => {
+                        confirmationMessage.classList.remove('opacity-100');
+                        confirmationMessage.classList.add('opacity-0', 'h-0', 'overflow-hidden');
+                    }, 3000);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
