@@ -1,1 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lili Token | Fueled by the fluffiest vibe</title>
 
+  <!-- Tailwind CSS for utility styling -->  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* Global Styling */
+    body {
+      font-family: 'Baloo 2', sans-serif;
+      /* CHANGED: Set full-page background image from user URL */
+      background: #f7f7f7 url('https://wallpaperaccess.com/full/1862750.jpg') no-repeat center center; 
+      background-size: cover;
+      background-attachment: fixed;
+      position: relative;
+      overflow-x: hidden; /* Hide horizontal scrollbar from animation */
+      color: #3b1d0a;
+    }
+
+    /* Background Paw Print Pattern (REMOVED - now using the custom image) */
+    .fur-overlay {
+      display: none; /* Hide the paw overlay div */
+    }
+
+    /* Glass-like Card Effect for the main content box */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 40px;
+      /* Adjusted box-shadow color to better match the new background image */
+      box-shadow: 0 10px 30px rgba(173, 216, 230, 0.5); /* Soft lilac/blue shadow */
+      padding: 0;
+      overflow: hidden;
+    }
+
+    /* Button Glow */
+    .glow-btn {
+      background: linear-gradient(90deg, #ffa94d, #ff6b35);
+      box-shadow: 0 4px 12px rgba(255, 145, 70, 0.4);
+      transition: all 0.2s ease;
+    }
+    .glow-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(255, 120, 50, 0.5);
+    }
+
+    /* Sad Meow iframe styling for the button effect */
+    .sad-meow-container {
+      background: #ffea7a;
+      border: 4px solid #ff69b4;
+      border-radius: 24px;
+      padding: 10px;
+      box-shadow: 0 6px 15px rgba(255, 105, 180, 0.3);
+    }
+
+    /* Smooth entry animation */
+    .fade-in {
+      animation: fadeIn 1.2s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col items-center p-6 relative">
+  <!-- Background Paw Print Overlay (REMOVED: Now using a single background image in CSS) -->
+
+  <!-- Main Content Card -->  <div class="w-full max-w-xl glass-card relative z-10 fade-in border-8 border-white">
+    <!-- New Navigation Header -->
+    <nav class="flex justify-around items-center p-4 bg-white/70 backdrop-blur-sm rounded-t-[32px] border-b-2 border-orange-200">
+      
+      <!-- Chart Link -->
+      <a href="https://www.dextools.io/app/en/solana/pair-explorer/7iRXXW9yAvxeWnvqEPwBnEcSZcwfTmSJSDA84x1CTrWM" target="_blank" class="flex items-center text-orange-600 font-semibold text-sm sm:text-base hover:text-orange-800 transition">
+        <!-- Chart Icon (Lucide: Trending Up/Link) -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-1"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+        Chart
+      </a>
+
+      <!-- Telegram Link -->
+      <a href="#" target="_blank" class="flex items-center text-orange-600 font-semibold text-sm sm:text-base hover:text-orange-800 transition">
+        <!-- Telegram Icon (Lucide: Send/Paper Plane) -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-1"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+        Telegram
+      </a>
+
+      <!-- X / Twitter Link -->
+      <a href="#" target="_blank" class="flex items-center text-orange-600 font-semibold text-sm sm:text-base hover:text-orange-800 transition">
+        <!-- X Icon (Twitter) -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-1"><path d="M18.901 1.153h3.684l-8.027 9.188L24 22.846h-7.614l-6.195-7.144L5.61 22.846H1.925l8.067-9.255L0 1.153h7.766l5.242 6.817L18.901 1.153Z"/></svg>
+        X
+      </a>
+    </nav>
+    
+    <!-- Header: Integrated Image (now follows the navigation bar) -->    <header class="overflow-hidden">
+      <img src="https://s12.gifyu.com/images/b3R9n.png"
+           alt="Lili Token: Fueled by the fluffiest vibe"
+           class="w-full h-auto block"
+           width="600"
+           height="180"
+           loading="lazy"
+           onerror="this.onerror=null; this.src='https://placehold.co/600x180/ff7e00/ffffff?text=LILI+TOKEN+Header+Error'">
+    </header>
+
+    <!-- Main Content Area -->    <main class="p-8 space-y-8 flex-grow">
+
+      <!-- Introduction Section -->      <section class="text-center">
+        <h2 class="text-3xl text-orange-700 font-bold mb-3">Join the Cuteness Revolution!</h2>
+        <p class="text-gray-700">
+          Every $LILI trade helps real cats. A warm-hearted memecoin built for joy, pawsitivity, and purpose 🧡.
+        </p>
+      </section>
+
+      <!-- Token Details Section -->      <section class="p-4 rounded-xl relative overflow-hidden text-center bg-transparent">
+        <h3 class="text-xl font-semibold text-orange-700 mb-4">🐾 Token Details</h3>
+        <div class="flex justify-center space-x-4">
+          <div class="w-1/2 p-4 rounded-2xl border-4 border-orange-200 bg-white shadow-lg">
+            <span class="font-medium text-gray-700 block">Ticker</span>
+            <span class="text-xl font-extrabold text-orange-700">$LILI</span>
+          </div>
+          <div class="w-1/2 p-4 rounded-2xl border-4 border-orange-200 bg-white shadow-lg">
+            <span class="font-medium text-gray-700 block">Chain</span>
+            <span class="text-xl font-extrabold text-orange-700">Solana</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Embedded Sad Meow Sound Instant -->      <section class="text-center p-4 sad-meow-container flex justify-center items-center">
+        <iframe width="110" height="200" src="https://www.myinstants.com/instant/sad-meow-song-88771/embed/" frameborder="0" scrolling="no" class="mx-auto bg-transparent"></iframe>
+      </section>
+
+      <!-- Buy Button Section -->      <section class="text-center space-y-4">
+        <h3 class="text-2xl font-bold text-gray-800">Buy Lili Now!</h3>
+        <a href="https://www.dextools.io/app/en/solana/pair-explorer/7iRXXW9yAvxeWnvqEPwBnEcSZcwfTmSJSDA84x1CTrWM"
+           target="_blank"
+           class="inline-block glow-btn text-white text-xl font-bold py-3 px-12 rounded-full">
+          🚀 Buy Lili Now!
+        </a>
+        <p class="text-xs text-gray-500 mt-3">You’ll be redirected to DEXTools.</p>
+      </section>
+    </main>
+
+    <!-- Footer -->    <footer class="bg-transparent text-gray-700 text-center p-4">
+      <p class="text-sm">&copy; 2025 Lili Token 🐱 Built for lilitoken.xyz</p>
+      <!-- Removed redundant social links from the footer -->
+    </footer>
+  </div>
+</body>
+</html>
